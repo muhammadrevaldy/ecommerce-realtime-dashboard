@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management E-commers</title>
+</head>
+<hr>
+    <h1>Dasboard E-commers</h1>
+
+    <hr>
+    <h2>Total Transaction : {{ total_transaction }}</h2>
+    <h2>Total Amount : {{ total_amount }}</h2>
+    <hr>    
+    {%if laytest_transaction %}
+    <h2>Latest Transaction</h2>
+
+    <hr>
+    <p>Customer : "{{ latest_transaction.customer }}"</p>
+    <p>Item : "{{ latest_transaction.item }}"</p>
+    <p>Amount : "{{ latest_transaction.amount }}"</p>
+    <p>Date : "{{ latest_transaction.date }}"</p>
+
+    <hr>
+    {% endif %}
+
+    <h2>Riwayat transaksi</h2>
+    <table border="1">
+        <tr>
+            <th>Customer</th>
+            <th>Item</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+
+        {% for row in transaction %}
+        <tr>
+            <td>{{ row.customer }}</td>
+            <td>{{ row.item }}</td>
+            <td>{{ row.amount }}</td>
+            <td>{{ row.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
